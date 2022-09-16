@@ -12,7 +12,7 @@ def on_grid_random():
 
 def collision(c1, c2):
     return (c1[0] == c2[0]) and (c1[1] == c2[1])
-
+55, 255, 255
 
 # Definir movimento da cobra
 ALTO = 0
@@ -38,6 +38,7 @@ snake_skin.fill((0, 255, 0))  # verde
 apple_pos = on_grid_random()
 apple = pygame.Surface((10, 10)) #tamanho maca
 apple.fill((255, 0, 0)) #vermelha
+
 
 my_direction = ESQUERDA
 
@@ -99,15 +100,15 @@ while not game_over:
     if my_direction == ESQUERDA:
         snake[0] = (snake[0][0] - 10, snake[0][1])
 
-    screen.fill((0, 0, 0))
+    screen.fill((255, 255, 255))
     screen.blit(apple, apple_pos)
 
     for x in range(0, 600, 10):  # Desenha grid (linha)
-        pygame.draw.line(screen, (40, 40, 40), (x, 0), (x, 600))
+        pygame.draw.line(screen, (46, 46, 46), (x, 0), (x, 600))
     for y in range(0, 600, 10):  # Desenha gri vertical
-        pygame.draw.line(screen, (40, 40, 40), (0, y), (600, y))
+        pygame.draw.line(screen, (46, 46, 46), (0, y), (600, y))
 
-    score_font = font.render('Score: %s' % (score), True, (255, 255, 255))
+    score_font = font.render('Score: %s' % (score), True, (0,0,0))
     score_rect = score_font.get_rect()
     score_rect.topleft = (600 - 120, 10)
     screen.blit(score_font, score_rect)
@@ -119,7 +120,7 @@ while not game_over:
 
 while True:
     game_over_font = pygame.font.SysFont('Comic CarToon', 50, bold=True)
-    game_over_screen = game_over_font.render('Você perdeu :(', True, (255, 255, 255))
+    game_over_screen = game_over_font.render('Você perdeu :(', True, (0,0,0))
     game_over_rect = game_over_screen.get_rect()
     game_over_rect.midtop = (600 / 2, 200)
     screen.blit(game_over_screen, game_over_rect)
